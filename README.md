@@ -8,7 +8,7 @@
 Simple AI chatbot backend using Hugging Face's free LLM API (Mistral-7B) and hosted on PythonAnywhere's free tier.
 
 ---
-
+## Steps for deployment
 ## Step 1: Hugging Face Setup
 
 ### 1.1 Get Free LLM API Access
@@ -67,3 +67,25 @@ Simple AI chatbot backend using Hugging Face's free LLM API (Mistral-7B) and hos
 
    ```plaintext
    Click the green Reload button in the Web tab.
+
+# Technology Stack
+- **Framework**: [Flask](https://flask.palletsprojects.com/) (Python) for lightweight API development.  
+- **LLM Provider**: [Hugging Face Inference API](https://huggingface.co/inference-api) (Mistral-7B model).  
+- **Hosting**: [PythonAnywhere](https://www.pythonanywhere.com) (free tier for deployment).  
+- **Dependencies**:  
+  - `flask-cors`: Enables cross-origin resource sharing.  
+  - `requests`: Manages HTTP calls to Hugging Face’s API.  
+
+---
+
+## Key Features
+- **Security**: Uses environment variables to store the Hugging Face API token securely.  
+- **Scalability**: Stateless design allows horizontal scaling (upgrade for production workloads).  
+- **Simplicity**: Minimal setup with <100 lines of core logic.  
+
+---
+
+## Workflow
+1. User query → Frontend → Backend (`/chat` endpoint).  
+2. Backend → Hugging Face API → Response sanitization.  
+3. Sanitized response → Frontend → User.  
